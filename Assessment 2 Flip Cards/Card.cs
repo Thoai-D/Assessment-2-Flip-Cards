@@ -20,6 +20,8 @@ namespace Assessment_2_Flip_Cards
             Flipped = false;
         }
 
+
+
         public string GetText()
         {
             if (Flipped)
@@ -30,11 +32,14 @@ namespace Assessment_2_Flip_Cards
             {
                 return Definition;
             }
+            return CardName;
         }
+
         public bool IsFlipped()
         {
             return Flipped;
         }
+
         public void FlipCard()
         {
             if (Flipped)
