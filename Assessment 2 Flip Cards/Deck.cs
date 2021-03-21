@@ -12,6 +12,7 @@ namespace Assessment_2_Flip_Cards
     {
         private Card[] Cards;
         private string FileName;
+        private int top;
 
         public Deck(string FileName)
         {
@@ -25,6 +26,7 @@ namespace Assessment_2_Flip_Cards
             StreamReader FileReader = new StreamReader(FileName);
             string line;
             int count = 0;
+            this.FileName = FileName;
             while((line = FileReader.ReadLine()) != null)
             {
                 string[] cells = line.Split(',');
@@ -37,17 +39,31 @@ namespace Assessment_2_Flip_Cards
 
         public int GetFileLength(string FileName)
         {
-            StreamReader FileReader = new StreamReader(FileName);
-            string line;
-            int count = 0;
-            while ((line = FileReader.ReadLine()) != null)
-            {
-                count++;
-            }
-            return count;
+                StreamReader FileReader = new StreamReader(FileName);
+                string line;
+                int count = 0;
+                while ((line = FileReader.ReadLine()) != null)
+                {
+                    count++;
+                }
+                return count;
+           
         }
 
+        public Card GetCard()
+        {
+            return Cards[top];
+        }
 
+        public void SetTop(int n)
+        {
+            top += n;
+        }
+
+        public int GetTop()
+        {
+            return top;
+        }
 
     }
 }

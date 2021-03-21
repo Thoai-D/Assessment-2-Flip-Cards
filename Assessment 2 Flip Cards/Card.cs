@@ -26,11 +26,11 @@ namespace Assessment_2_Flip_Cards
         {
             if (Flipped)
             {
-                return CardName;
+                return Definition;
             }
             else if (!Flipped)
             {
-                return Definition;
+                return CardName;
             }
             return CardName;
         }
