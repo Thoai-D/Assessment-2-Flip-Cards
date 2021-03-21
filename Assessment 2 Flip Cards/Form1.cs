@@ -61,7 +61,7 @@ namespace Assessment_2_Flip_Cards
                 deck.SetTop(deck.GetFileLength(filename));
                 CardText.Text = deck.GetCard().GetText();
             }
-            else if(textBox1.Text != "" and loaded == true)
+            else if(textBox1.Text != "" && loaded == true)
             {
                 deck.SetTop(-1);
                 CardText.Text = deck.GetCard().GetText();
