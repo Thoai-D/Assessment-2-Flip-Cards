@@ -37,6 +37,8 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.FlipButton = new System.Windows.Forms.Button();
             this.CardText = new System.Windows.Forms.RichTextBox();
+            this.ShuffleButton = new System.Windows.Forms.Button();
+            this.RandomCardButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -56,7 +58,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(163, 12);
+            this.comboBox1.Location = new System.Drawing.Point(163, 13);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(256, 28);
             this.comboBox1.TabIndex = 1;
@@ -113,15 +115,37 @@
             this.CardText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.CardText.Location = new System.Drawing.Point(163, 104);
             this.CardText.Name = "CardText";
-            this.CardText.Size = new System.Drawing.Size(438, 154);
+            this.CardText.Size = new System.Drawing.Size(438, 128);
             this.CardText.TabIndex = 8;
             this.CardText.Text = "";
+            // 
+            // ShuffleButton
+            // 
+            this.ShuffleButton.Location = new System.Drawing.Point(49, 104);
+            this.ShuffleButton.Name = "ShuffleButton";
+            this.ShuffleButton.Size = new System.Drawing.Size(85, 56);
+            this.ShuffleButton.TabIndex = 9;
+            this.ShuffleButton.Text = "Shuffle";
+            this.ShuffleButton.UseVisualStyleBackColor = true;
+            this.ShuffleButton.Click += new System.EventHandler(this.ShuffleButton_Click);
+            // 
+            // RandomCardButton
+            // 
+            this.RandomCardButton.Location = new System.Drawing.Point(49, 176);
+            this.RandomCardButton.Name = "RandomCardButton";
+            this.RandomCardButton.Size = new System.Drawing.Size(85, 56);
+            this.RandomCardButton.TabIndex = 10;
+            this.RandomCardButton.Text = "Random Card";
+            this.RandomCardButton.UseVisualStyleBackColor = true;
+            this.RandomCardButton.Click += new System.EventHandler(this.RandomCardButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RandomCardButton);
+            this.Controls.Add(this.ShuffleButton);
             this.Controls.Add(this.CardText);
             this.Controls.Add(this.FlipButton);
             this.Controls.Add(this.NextButton);
@@ -148,6 +172,8 @@
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button FlipButton;
         private System.Windows.Forms.RichTextBox CardText;
+        private System.Windows.Forms.Button ShuffleButton;
+        private System.Windows.Forms.Button RandomCardButton;
     }
 }
 

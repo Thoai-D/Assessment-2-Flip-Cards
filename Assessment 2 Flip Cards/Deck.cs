@@ -50,7 +50,40 @@ namespace Assessment_2_Flip_Cards
            
         }
 
-        public Card GetCard()
+
+        public void ShuffleDeck()
+        {
+            for (int i = 0; i < GetFileLength(FileName); i++)
+            {
+                if(Cards[i].IsFlipped() == true)
+                {
+                    Cards[i].FlipCard();
+                }
+            }
+
+            for(int i = 0; i < (GetFileLength(FileName) + 20); i++)
+            {
+                Random r1 = new Random();
+                Random r2 = new Random();
+                int Random1 = r1.Next(0, GetFileLength(FileName));
+                int Random2 = r2.Next(0, GetFileLength(FileName));
+                Card TempCard;
+
+                TempCard = Cards[Random1];
+                Cards[Random1] = Cards[Random2];
+                Cards[Random2] = Cards[Random1];
+            }
+            top = 0;
+        }
+
+        public Card GetRandomCard()
+        {
+            Random r = new Random();
+            int Random = r.Next(0, GetFileLength(FileName));
+            return Cards[Random];
+        }
+
+        public Card GetTopCard()
         {
             return Cards[top];
         }
@@ -65,5 +98,32 @@ namespace Assessment_2_Flip_Cards
             return top;
         }
 
+        public Card GetNextCard()
+        {
+            if (top == GetFileLength(FileName))
+            {
+                SetTop(-GetFileLength(FileName));
+                return Cards[top];
+            }
+            else
+            {
+                SetTop(1);
+                return Cards[top];
+            }
+        }
+
+        public Card GetPreviousCard()
+        {
+            if (top == 0)
+            {
+                SetTop(GetFileLength(FileName));
+                return Cards[top];
+            }
+            else
+            {
+                SetTop(-1);
+                return Cards[top];
+            }
+        }
     }
 }

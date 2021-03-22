@@ -14,7 +14,7 @@ namespace Assessment_2_Flip_Cards
     {
         string filename;
         Deck deck;
-        bool loaded = false;
+        Card card;
 
         public Form1()
         {
@@ -34,48 +34,51 @@ namespace Assessment_2_Flip_Cards
             if (textBox1.Text != "")
             {
                 deck = new Deck(textBox1.Text);
-                CardText.Text = deck.GetCard().GetText();
-                loaded = true;
+                card = deck.GetTopCard();
+                CardText.Text = card.GetText();
+                comboBox1.Text = filename;
             }
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && deck.GetTop() == deck.GetFileLength(filename) && loaded == true)
+            if(deck != null)
             {
-                deck.SetTop(-deck.GetFileLength(filename));
-                CardText.Text = deck.GetCard().GetText();
-            }
-            else if(textBox1.Text != "" && loaded == true)
-            {
-                deck.SetTop(1);
-                CardText.Text = deck.GetCard().GetText();
+                card = deck.GetNextCard();
+                CardText.Text = card.GetText();
             }
         }
 
 
         private void PreviousButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && deck.GetTop() == 0 && loaded == true)
+            if (deck != null)
             {
-                deck.SetTop(deck.GetFileLength(filename));
-                CardText.Text = deck.GetCard().GetText();
-            }
-            else if(textBox1.Text != "" && loaded == true)
-            {
-                deck.SetTop(-1);
-                CardText.Text = deck.GetCard().GetText();
+                card = deck.GetPreviousCard();
+                CardText.Text = card.GetText();
             }
         }
 
         private void FlipButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && loaded == true)
+            if (deck != null)
             {
-                deck.GetCard().FlipCard();
-                CardText.Text = deck.GetCard().GetText();
+                card.FlipCard();
+                CardText.Text = card.GetText();         
             }
         }
 
+        private void ShuffleButton_Click(object sender, EventArgs e)
+        {
+            deck.ShuffleDeck();
+            card = deck.GetTopCard();
+            textBox1.Text = card.GetText();
+        }
+
+        private void RandomCardButton_Click(object sender, EventArgs e)
+        {
+            card = deck.GetRandomCard();
+            textBox1.Text = card.GetText();
+        }
     }
 }
