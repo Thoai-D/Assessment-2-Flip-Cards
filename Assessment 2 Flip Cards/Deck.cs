@@ -77,17 +77,15 @@ namespace Assessment_2_Flip_Cards
             }
 
             //shuffle the cards by how many cards there are +20 more shuffles to be sure it is shuffled
-            for(int i = 0; i < (GetFileLength(FileName) + 20); i++)
+            for(int i = 0; i < (GetFileLength(FileName) * 2); i++)
             {
-                Random r1 = new Random();
-                Random r2 = new Random();
-                int Random1 = r1.Next(0, GetFileLength(FileName));
-                int Random2 = r2.Next(0, GetFileLength(FileName));
-                Card TempCard;
+                Random r = new Random();
+                int Random = r.Next(0, GetFileLength(FileName));
+                Card TempCard; //Temporary card variable to swap
 
-                TempCard = Cards[Random1];
-                Cards[Random1] = Cards[Random2];
-                Cards[Random2] = Cards[Random1];
+                TempCard = Cards[0];
+                Cards[0] = Cards[Random];
+                Cards[Random] = TempCard;
             }
             top = 0;
         }

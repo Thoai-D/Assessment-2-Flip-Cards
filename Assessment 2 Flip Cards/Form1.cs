@@ -108,6 +108,7 @@ namespace Assessment_2_Flip_Cards
             if (deck != null)
             {
                 deck.ShuffleDeck();
+                deck.SetTopToZero();
                 card = deck.GetTopCard();
                 CardText.Text = card.GetText();
             }
