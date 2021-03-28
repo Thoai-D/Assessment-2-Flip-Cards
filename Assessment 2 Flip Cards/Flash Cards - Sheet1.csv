@@ -1,0 +1,6 @@
+King,The most important piece in the game. Can move in any direction by 1 square only.
+Queen,The most powerful piece in the game. Can move in any direction without limits
+Knight,The piece with the trickiest moves in the game. Can move in an L shape.
+Bishop,A piece that can move in any diagonal direction without limits
+Rook,The second most powerful piece in the game. Can move horizontally and vertically without limits
+Pawn,The least important piece in the game. Can move forward only by 1 step and captures pieces diagonally.
