@@ -22,6 +22,10 @@ namespace Assessment_2_Flip_Cards
 
 
 
+        /// <summary>
+        /// Gets the text depending on whether it is flipped or not
+        /// </summary>
+        /// <returns>a string</returns>
         public string GetText()
         {
             if (Flipped)
@@ -35,11 +39,20 @@ namespace Assessment_2_Flip_Cards
             return CardName;
         }
 
+        
+        /// <summary>
+        /// checks if the card is flipped or not
+        /// </summary>
+        /// <returns>a bool</returns>
         public bool IsFlipped()
         {
             return Flipped;
         }
 
+
+        /// <summary>
+        /// Flips the card
+        /// </summary>
         public void FlipCard()
         {
             if (Flipped)
